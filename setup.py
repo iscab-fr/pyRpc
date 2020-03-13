@@ -19,7 +19,7 @@ else:
 setup(
     name = "pyRpc",
     version = ctx['__version__'],
-    url = 'https://github.com/justinfx/pyRpc',
+    url = 'https://github.com/iscab-fr/pyRpc',
     packages = find_packages(),
     include_package_data = True,
     install_requires = ['pyzmq'],
