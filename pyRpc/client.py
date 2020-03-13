@@ -52,6 +52,8 @@ from zmq import ZMQError
 from pyRpc.constants import TEMPDIR
 from pyRpc.server import RpcResponse
 
+import uuid
+
 logger = logging.getLogger(__name__)
 
 
@@ -86,7 +88,7 @@ class RpcConnection(object):
         else:
             self._address = "ipc://%s/%s.ipc" % (TEMPDIR, name)
 
-        self._work_address = "inproc://workRequest"
+        self._work_address = "inproc://workRequest" + str(uuid.uuid1())
 
         self._async_sender = self._context.socket(zmq.PUSH)
         self._async_sender.bind(self._work_address)
